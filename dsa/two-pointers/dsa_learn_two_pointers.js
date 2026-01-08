@@ -1,5 +1,7 @@
-// Function to check whether any pair exists
-// whose sum is equal to the given target value
+
+// Input: arr[] = [10, 20, 35, 50], target =70
+
+// Naive methods
 function twoSum(arr, target) {
     let n = arr.length;
 
@@ -22,11 +24,42 @@ function twoSum(arr, target) {
     return false;
 }
 
-let arr = [0, -1, 2, -3, 1];
-let target = -2;
+// TWO POINTER METHOD
+function twoSumPointer(arr, target)
+{
+    // Sort the array
+    let left = 0, right = arr.length - 1;
+    // Iterate while left pointer is less than right
+    while (left < right) {
+        let sum = arr[left] + arr[right];
+
+        // Check if the sum matches the target
+        if (sum === target)
+            return true;
+        else if (sum < target)
+            left++; // Move left pointer to the right
+        else
+            right--; // Move right pointer to the left
+    }
+    // If no pair is found
+    return false;
+}
+
+
+let arr = [10, 20, 35, 50];
+let target = 70;
+
 
 // Call the twoSum function and print the result
-if (twoSum(arr, target))
+if (twoSum(arr, target)) {
     console.log("true");
-else 
+} else {
     console.log("false");
+}
+
+// Call the twoSum function and print the result
+if (twoSumPointer(arr, target)) {
+    console.log("true");
+} else {
+    console.log("false");
+}
