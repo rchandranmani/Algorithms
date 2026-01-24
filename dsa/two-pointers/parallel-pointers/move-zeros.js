@@ -6,9 +6,7 @@ for (let right = 0; right < arr.length; right++) {
   if (arr[right] !== 0) {
     // Avoid an unnecessary swap when left === right
     if (left !== right) {
-      const tmp = arr[left];
-      arr[left] = arr[right];
-      arr[right] = tmp;
+      [arr[left], arr[right]] = [arr[right], arr[left]]
     }
     left++;
   }
